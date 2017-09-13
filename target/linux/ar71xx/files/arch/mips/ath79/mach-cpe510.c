@@ -174,6 +174,9 @@ static void __init wbs_setup(void)
 MIPS_MACHINE(ATH79_MACH_CPE210, "CPE210", "TP-LINK CPE210/220",
 	     cpe210_setup);
 
+MIPS_MACHINE(ATH79_MACH_CPE210_V2, "CPE210V2", "TP-LINK CPE210/220 v2",
+	     cpe210_setup);
+
 MIPS_MACHINE(ATH79_MACH_CPE510, "CPE510", "TP-LINK CPE510/520",
 	     cpe510_setup);
 
