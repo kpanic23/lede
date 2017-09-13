@@ -123,6 +123,9 @@ static struct device_info boards[] = {
 		.vendor	= "CPE510(TP-LINK|UN|N300-5):1.0\r\n",
 		.support_list =
 			"SupportList:\r\n"
+			"CPE210(TP-LINK|UN|N300-2):2.0\r\n"
+			"CPE210(TP-LINK|EU|N300-2):2.0\r\n"
+			"CPE210(TP-LINK|US|N300-2):2.0\r\n"
 			"CPE210(TP-LINK|UN|N300-2):1.0\r\n"
 			"CPE210(TP-LINK|UN|N300-2):1.1\r\n"
 			"CPE210(TP-LINK|US|N300-2):1.1\r\n"
