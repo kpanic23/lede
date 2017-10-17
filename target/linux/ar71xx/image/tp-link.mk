@@ -45,6 +45,14 @@ define Build/mktplinkfw-kernel
 	@mv $@.new $@
 endef
 
+define Build/uImageArcher
+	mkimage -A $(LINUX_KARCH) \
+		-O linux -T kernel \
+		-C $(1) -a $(KERNEL_LOADADDR) -e $(if $(KERNEL_ENTRY),$(KERNEL_ENTRY),$(KERNEL_LOADADDR)) \
+		-n '$(call toupper,$(LINUX_KARCH)) LEDE Linux-$(LINUX_VERSION)' -d $@ $@.new
+	@mv $@.new $@
+endef
+
 define Device/tplink
   TPLINK_HWREV := 0x1
   TPLINK_HEADER_VERSION := 1
@@ -94,6 +102,22 @@ $(Device/tplink)
   TPLINK_FLASHLAYOUT := 16Mlzma
   IMAGE_SIZE := 15872k
 endef
+
+define Device/archer-c25-v1
+  DEVICE_TITLE := TP-LINK Archer C25 v1
+  DEVICE_PACKAGES := kmod-ath10k ath10k-firmware-qca9887
+  BOARDNAME := ARCHER-C25-V1
+  TPLINK_BOARD_NAME := ARCHER-C25-V1
+  DEVICE_PROFILE := ARCHERC25V1
+  IMAGE_SIZE := 7808k
+  LOADER_TYPE := elf
+  KERNEL := kernel-bin | patch-cmdline | lzma | uImageArcher lzma
+  IMAGES := sysupgrade.bin factory.bin
+  IMAGE/sysupgrade.bin := append-rootfs | tplink-safeloader sysupgrade
+  IMAGE/factory.bin := append-rootfs | tplink-safeloader factory
+  MTDPARTS := spi0.0:128k(factory-uboot)ro,64k(u-boot)ro,1536k(kernel),6272k(rootfs),128k(config)ro,64k(art)ro,7808k@0x30000(firmware)
+endef
+TARGET_DEVICES += archer-c25-v1
 
 define Device/cpe510-520
   DEVICE_TITLE := TP-LINK CPE510/520

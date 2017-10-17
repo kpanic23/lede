@@ -56,6 +56,7 @@ obj-$(CONFIG_ATH79_MACH_AP147)			+= mach-ap147.o
 obj-$(CONFIG_ATH79_MACH_AP152)			+= mach-ap152.o
 obj-$(CONFIG_ATH79_MACH_AP90Q)			+= mach-ap90q.o
 obj-$(CONFIG_ATH79_MACH_AP96)			+= mach-ap96.o
+obj-$(CONFIG_ATH79_MACH_ARCHER_C25_V1)		+= mach-archer-c25-v1.o
 obj-$(CONFIG_ATH79_MACH_ARCHER_C7)		+= mach-archer-c7.o
 obj-$(CONFIG_ATH79_MACH_ARDUINO_YUN)		+= mach-arduino-yun.o
 obj-$(CONFIG_ATH79_MACH_AW_NR580)		+= mach-aw-nr580.o

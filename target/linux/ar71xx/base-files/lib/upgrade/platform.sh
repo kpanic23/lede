@@ -206,6 +206,7 @@ platform_check_image() {
 	ap121f|\
 	ap132|\
 	ap90q|\
+	archer-c25-v1|\
 	bullet-m|\
 	c-55|\
 	carambola2|\
